@@ -16,23 +16,28 @@
     try { localStorage.setItem('lang', root.lang); } catch (e) {}
   });
 
-  // Stickers arrastrables
+  // Stickers arrastrables: se mueven con translate dentro de todo el hero
+  var hero = document.querySelector('.hero');
+  var zTop = 3;
   document.querySelectorAll('.sticker').forEach(function (el) {
-    var zone = el.parentElement;
+    var tx = 0, ty = 0;
     el.addEventListener('pointerdown', function (e) {
-      var zr = zone.getBoundingClientRect();
+      e.preventDefault();
+      var hr = hero.getBoundingClientRect();
       var er = el.getBoundingClientRect();
-      var dx = e.clientX - er.left;
-      var dy = e.clientY - er.top;
+      var startX = e.clientX, startY = e.clientY;
+      var baseX = tx, baseY = ty;
+      // Límites para que el sticker no salga del hero
+      var minX = baseX + (hr.left - er.left), maxX = baseX + (hr.right - er.right);
+      var minY = baseY + (hr.top - er.top), maxY = baseY + (hr.bottom - er.bottom);
       el.setPointerCapture(e.pointerId);
       el.classList.add('dragging');
-      zone.appendChild(el); // queda encima de los demás
+      el.style.zIndex = ++zTop;
 
       function move(ev) {
-        var x = Math.max(-20, Math.min(ev.clientX - zr.left - dx, zr.width - er.width + 20));
-        var y = Math.max(-20, Math.min(ev.clientY - zr.top - dy, zr.height - er.height + 20));
-        el.style.left = x + 'px';
-        el.style.top = y + 'px';
+        tx = Math.max(minX, Math.min(baseX + ev.clientX - startX, maxX));
+        ty = Math.max(minY, Math.min(baseY + ev.clientY - startY, maxY));
+        el.style.translate = tx + 'px ' + ty + 'px';
       }
       function up() {
         el.classList.remove('dragging');
