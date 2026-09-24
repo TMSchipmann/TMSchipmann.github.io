@@ -4,282 +4,257 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tomás Martínez Schipmann · Full-Stack Developer</title>
-  <meta name="description" content="Portafolio de Tomás Martínez Schipmann, Ingeniero Civil Informático (UNAB, Cum Laude). Productos web de punta a punta con TypeScript, React, Next.js y PostgreSQL.">
+  <meta name="description" content="Tomás Martínez Schipmann, Ingeniero Civil Informático. Hago software que la gente sí usa: GestAutos, MiSemestre y sistemas industriales.">
   <meta property="og:title" content="Tomás Martínez Schipmann · Full-Stack Developer">
-  <meta property="og:description" content="Productos web de punta a punta: SaaS multiempresa, herramientas para estudiantes y sistemas industriales.">
+  <meta property="og:description" content="Hago software que la gente sí usa.">
   <meta property="og:image" content="assets/gestautos/03-panel.jpg">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23111'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='28' font-weight='700' fill='%23ff7a45'>TM</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='4' y='4' width='56' height='56' rx='10' fill='%23ffd23f' stroke='%23111' stroke-width='5'/><text x='50%25' y='58%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial Black,sans-serif' font-size='30' font-weight='900' fill='%23111'>T</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Aplica tema e idioma guardados antes de pintar para evitar parpadeo
-    try {
-      var t = localStorage.getItem('theme');
-      if (t) document.documentElement.dataset.theme = t;
-      var l = localStorage.getItem('lang');
-      if (l) document.documentElement.lang = l;
-    } catch (e) {}
-  </script>
+  <script>try { var l = localStorage.getItem('lang'); if (l) document.documentElement.lang = l; } catch (e) {}</script>
 </head>
 <body>
-  <a class="skip" href="#main">
-    <span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span>
-  </a>
 
   <header class="nav">
-    <div class="wrap nav-inner">
-      <a href="#top" class="logo" aria-label="Inicio">TM<span>.</span></a>
-      <nav class="nav-links" aria-label="Principal">
-        <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
-        <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
-        <a href="#stack">Stack</a>
-        <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-      </nav>
-      <div class="nav-tools">
-        <button class="tool" id="lang-toggle" type="button" aria-label="Cambiar idioma / Switch language">
-          <span lang="es">EN</span><span lang="en">ES</span>
-        </button>
-        <button class="tool" id="theme-toggle" type="button" aria-label="Cambiar tema">
-          <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-          <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        </button>
-      </div>
-    </div>
+    <a href="#top" class="logo">tomás<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#proyectos"><span lang="es">proyectos</span><span lang="en">projects</span></a>
+      <a href="#ruta"><span lang="es">ruta</span><span lang="en">journey</span></a>
+      <a href="#contacto"><span lang="es">hablemos</span><span lang="en">contact</span></a>
+    </nav>
+    <button class="lang" id="lang-toggle" type="button" aria-label="Cambiar idioma / Switch language">
+      <span class="on-es">ES</span><span class="on-en">EN</span>
+    </button>
   </header>
 
-  <main id="main">
+  <main>
     <!-- HERO -->
-    <section class="hero wrap" id="top">
-      <p class="eyebrow mono">
-        <span class="dot" aria-hidden="true"></span>
-        <span lang="es">Disponible de inmediato · Chile y UE</span>
-        <span lang="en">Available now · Chile &amp; EU</span>
-      </p>
-      <h1>
-        Tomás Martínez<br>Schipmann
-      </h1>
-      <p class="lead">
-        <span lang="es">Ingeniero Civil Informático y desarrollador <strong>full-stack</strong>. Construyo productos web de punta a punta: desde entender el problema hasta la arquitectura, la interfaz, los datos y el despliegue.</span>
-        <span lang="en">Computer Engineer and <strong>full-stack</strong> developer. I build web products end to end: from understanding the problem to architecture, interface, data and deployment.</span>
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="#proyectos">
-          <span lang="es">Ver proyectos</span><span lang="en">See projects</span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
-        <a class="btn" href="mailto:tomasinh9@gmail.com">tomasinh9@gmail.com</a>
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <p class="hello mono">
+          <span lang="es">¡Hola! 👋 soy</span><span lang="en">Hi! 👋 I'm</span>
+        </p>
+        <h1>
+          <span class="line">Tomás</span>
+          <span class="line outline">Martínez</span>
+          <span class="line">Schipmann<span class="blink">_</span></span>
+        </h1>
+        <p class="pitch">
+          <span lang="es">Ingeniero Civil Informático. Hago <mark>software que la gente sí usa</mark>: desde la primera idea hasta que está en producción y alguien me escribe para pedir una mejora.</span>
+          <span lang="en">Computer Engineer. I build <mark>software people actually use</mark>: from the first sketch until it's live and someone writes asking for a new feature.</span>
+        </p>
+        <div class="cta">
+          <a href="#proyectos" class="btn yellow"><span lang="es">Ver lo que he hecho ↓</span><span lang="en">See my work ↓</span></a>
+          <a href="#contacto" class="btn"><span lang="es">Escríbeme</span><span lang="en">Get in touch</span></a>
+        </div>
       </div>
-      <dl class="facts">
-        <div><dt class="mono"><span lang="es">Título</span><span lang="en">Degree</span></dt><dd><span lang="es">Ing. Civil Informática, UNAB · Cum Laude</span><span lang="en">Computer Engineering, UNAB · Cum Laude</span></dd></div>
-        <div><dt class="mono"><span lang="es">Base</span><span lang="en">Based in</span></dt><dd>Santiago, Chile</dd></div>
-        <div><dt class="mono"><span lang="es">Ciudadanía</span><span lang="en">Citizenship</span></dt><dd><span lang="es">Chilena y alemana (permiso UE)</span><span lang="en">Chilean &amp; German (EU work permit)</span></dd></div>
-      </dl>
+
+      <!-- Stickers arrastrables -->
+      <div class="sticker-zone" aria-hidden="true">
+        <div class="sticker s-available" style="--r:-6deg; --x:6%; --y:4%">
+          <span class="pulse"></span>
+          <span lang="es">disponible ya</span><span lang="en">available now</span>
+        </div>
+        <div class="sticker s-cum" style="--r:5deg; --x:48%; --y:20%">🎓 Cum Laude</div>
+        <div class="sticker s-flags" style="--r:-3deg; --x:10%; --y:44%">🇨🇱 + 🇩🇪</div>
+        <div class="sticker s-stack" style="--r:8deg; --x:52%; --y:58%">&lt;Next.js /&gt;</div>
+        <div class="sticker s-coffee" style="--r:-10deg; --x:22%; --y:74%">
+          <span lang="es">funciona con ☕</span><span lang="en">runs on ☕</span>
+        </div>
+        <p class="drag-hint mono"><span lang="es">↑ arrástralos</span><span lang="en">↑ drag them</span></p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-label="Tecnologías">
+      <div class="track">
+        <span>TypeScript ✦ React ✦ Next.js ✦ PostgreSQL ✦ Supabase ✦ Prisma ✦ Node.js ✦ PHP ✦ Firebase ✦ Tailwind ✦ Vercel ✦ Cloudflare ✦&nbsp;</span>
+        <span aria-hidden="true">TypeScript ✦ React ✦ Next.js ✦ PostgreSQL ✦ Supabase ✦ Prisma ✦ Node.js ✦ PHP ✦ Firebase ✦ Tailwind ✦ Vercel ✦ Cloudflare ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- NÚMEROS -->
+    <section class="numbers">
+      <div class="num" style="--c:var(--pink)"><b data-count="400">400</b><em>+</em><span lang="es">carreras en MiSemestre</span><span lang="en">degree programs on MiSemestre</span></div>
+      <div class="num" style="--c:var(--blue)"><b data-count="9">9</b><span lang="es">instituciones cubiertas</span><span lang="en">institutions covered</span></div>
+      <div class="num" style="--c:var(--green)"><b data-count="90">90</b><em>~</em><span lang="es">pruebas de integración en GestAutos</span><span lang="en">integration checks in GestAutos</span></div>
+      <div class="num" style="--c:var(--yellow)"><b data-count="2">2</b><span lang="es">países donde mi código está en producción</span><span lang="en">countries where my code runs in production</span></div>
     </section>
 
     <!-- PROYECTOS -->
-    <section class="section wrap" id="proyectos">
-      <header class="section-head">
-        <p class="mono kicker">01</p>
-        <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
-        <p class="section-sub">
-          <span lang="es">Productos propios en producción o en desarrollo activo. El código es privado; los casos de estudio documentan el problema, las decisiones y el resultado.</span>
-          <span lang="en">My own products, live or in active development. Source code is private; the case studies document the problem, the decisions and the outcome.</span>
-        </p>
-      </header>
+    <section class="projects" id="proyectos">
+      <h2 class="big-title">
+        <span lang="es">Cosas que<br>he construido</span>
+        <span lang="en">Things<br>I've built</span>
+      </h2>
 
-      <!-- GestAutos -->
-      <article class="project">
-        <div class="project-media">
-          <figure class="shot main">
-            <img src="assets/gestautos/03-panel.jpg" alt="Panel de operaciones de GestAutos" loading="lazy" width="1600" height="1000">
-          </figure>
-          <div class="thumbs" data-gallery="gestautos">
-            <button type="button" data-src="assets/gestautos/01-catalogo-publico.jpg"><img src="assets/gestautos/01-catalogo-publico.jpg" alt="Catálogo público" loading="lazy"></button>
-            <button type="button" data-src="assets/gestautos/04-leads.jpg"><img src="assets/gestautos/04-leads.jpg" alt="CRM de oportunidades" loading="lazy"></button>
-            <button type="button" data-src="assets/gestautos/06-inventario.jpg"><img src="assets/gestautos/06-inventario.jpg" alt="Inventario" loading="lazy"></button>
-            <button type="button" data-src="assets/gestautos/07-agenda.jpg"><img src="assets/gestautos/07-agenda.jpg" alt="Agenda" loading="lazy"></button>
-          </div>
+      <article class="card" style="--bg:var(--blue); --tilt:-1deg">
+        <div class="card-top">
+          <span class="badge"><span lang="es">SaaS · en desarrollo</span><span lang="en">SaaS · in progress</span></span>
+          <span class="idx mono">01</span>
         </div>
-        <div class="project-body">
-          <p class="mono tag-line"><span lang="es">SaaS multiempresa · En desarrollo activo</span><span lang="en">Multi-tenant SaaS · In active development</span></p>
-          <h3>GestAutos</h3>
-          <p>
-            <span lang="es">Plataforma para automotoras pequeñas y medianas que reúne el catálogo público y la gestión comercial: CRM con pipeline y Kanban, inventario con historial, agenda, reservas y cotizaciones compartibles.</span>
-            <span lang="en">Platform for small and mid-sized car dealerships combining the public catalog and sales management: CRM with pipeline and Kanban, inventory with history, scheduling, reservations and shareable quotes.</span>
-          </p>
-          <ul class="points">
-            <li><span lang="es">Aislamiento multiempresa con Row Level Security en PostgreSQL y roles por equipo.</span><span lang="en">Multi-tenant isolation with PostgreSQL Row Level Security and team roles.</span></li>
-            <li><span lang="es">MFA TOTP, validación en servidor con Zod y ~90 pruebas de integración.</span><span lang="en">TOTP MFA, server-side validation with Zod and ~90 integration checks.</span></li>
-            <li><span lang="es">Asistente opcional con IA para fichas técnicas, siempre con revisión humana.</span><span lang="en">Optional AI assistant for vehicle specs, always with human review.</span></li>
-          </ul>
-          <ul class="chips">
-            <li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Tailwind v4</li>
-          </ul>
-          <div class="links">
-            <a href="https://gestautos.cl" target="_blank" rel="noopener">gestautos.cl ↗</a>
-            <a href="https://github.com/TMSchipmann/gestautos-case-study" target="_blank" rel="noopener"><span lang="es">Caso de estudio ↗</span><span lang="en">Case study ↗</span></a>
+        <div class="card-grid">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url mono">gestautos.cl</span></div>
+            <div class="screen">
+              <img src="assets/gestautos/03-panel.jpg" alt="Panel de operaciones de GestAutos" loading="lazy" data-set="gestautos/03-panel,gestautos/01-catalogo-publico,gestautos/04-leads,gestautos/06-inventario,gestautos/07-agenda,gestautos/08-equipo-roles">
+            </div>
+            <button type="button" class="next mono" aria-label="Siguiente captura">→</button>
+          </div>
+          <div class="card-body">
+            <h3>GestAutos</h3>
+            <p class="lede">
+              <span lang="es">Las automotoras chicas gestionan sus ventas por WhatsApp, planillas y memoria. Les armé una plataforma con catálogo público, CRM, inventario, agenda y cotizaciones.</span>
+              <span lang="en">Small car dealerships run sales on WhatsApp, spreadsheets and memory. I built them one platform with a public catalog, CRM, inventory, scheduling and quotes.</span>
+            </p>
+            <ul class="bullets">
+              <li><span lang="es">Varias automotoras en un mismo sistema, aisladas con Row Level Security.</span><span lang="en">Many dealerships on one system, isolated with Row Level Security.</span></li>
+              <li><span lang="es">Roles, MFA y ~90 pruebas de integración para dormir tranquilo.</span><span lang="en">Roles, MFA and ~90 integration checks so I can sleep at night.</span></li>
+              <li><span lang="es">IA opcional que sugiere fichas técnicas (siempre con revisión humana).</span><span lang="en">Optional AI that drafts vehicle specs (always human-reviewed).</span></li>
+            </ul>
+            <ul class="tags"><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Supabase</li><li>Postgres</li></ul>
+            <div class="links">
+              <a href="https://gestautos.cl" target="_blank" rel="noopener" class="btn small yellow">gestautos.cl ↗</a>
+              <a href="https://github.com/TMSchipmann/gestautos-case-study" target="_blank" rel="noopener" class="btn small"><span lang="es">Caso de estudio</span><span lang="en">Case study</span> ↗</a>
+            </div>
           </div>
         </div>
       </article>
 
-      <!-- MiSemestre -->
-      <article class="project reverse">
-        <div class="project-media">
-          <figure class="shot main">
-            <img src="assets/misemestre/03-malla-con-avance.jpg" alt="Malla curricular con avance marcado en MiSemestre" loading="lazy" width="1600" height="1000">
-          </figure>
-          <div class="thumbs" data-gallery="misemestre">
-            <button type="button" data-src="assets/misemestre/01-elige-universidad.jpg"><img src="assets/misemestre/01-elige-universidad.jpg" alt="Selección de universidad" loading="lazy"></button>
-            <button type="button" data-src="assets/misemestre/04-detalle-ramo.jpg"><img src="assets/misemestre/04-detalle-ramo.jpg" alt="Detalle de un ramo" loading="lazy"></button>
-            <button type="button" data-src="assets/misemestre/05-movil.jpg"><img src="assets/misemestre/05-movil.jpg" alt="Vista móvil" loading="lazy"></button>
-          </div>
+      <article class="card" style="--bg:var(--pink); --tilt:1deg">
+        <div class="card-top">
+          <span class="badge"><span lang="es">App web · en línea</span><span lang="en">Web app · live</span></span>
+          <span class="idx mono">02</span>
         </div>
-        <div class="project-body">
-          <p class="mono tag-line"><span lang="es">App web · En línea</span><span lang="en">Web app · Live</span></p>
-          <h3>MiSemestre</h3>
-          <p>
-            <span lang="es">Mallas curriculares interactivas para estudiantes chilenos: marcas los ramos aprobados y ves al instante tu avance, tus créditos y qué puedes cursar el próximo semestre.</span>
-            <span lang="en">Interactive curriculum maps for Chilean students: mark the courses you've passed and instantly see your progress, credits and what you can take next semester.</span>
-          </p>
-          <ul class="points">
-            <li><span lang="es">8 universidades y Duoc UC, con más de 400 carreras.</span><span lang="en">8 universities plus Duoc UC, over 400 degree programs.</span></li>
-            <li><span lang="es">Funciona sin cuenta; con Google, el avance se sincroniza vía Firestore.</span><span lang="en">Works without an account; with Google sign-in, progress syncs through Firestore.</span></li>
-            <li><span lang="es">Pipeline de datos en Python/Node para extraer y auditar mallas desde fuentes oficiales.</span><span lang="en">Python/Node data pipeline to extract and audit curricula from official sources.</span></li>
-          </ul>
-          <ul class="chips">
-            <li>JavaScript</li><li>HTML/CSS</li><li>Firebase</li><li>Firestore</li><li>Python</li>
-          </ul>
-          <div class="links">
-            <a href="https://misemestre.cl" target="_blank" rel="noopener">misemestre.cl ↗</a>
-            <a href="https://github.com/TMSchipmann/misemestre-case-study" target="_blank" rel="noopener"><span lang="es">Caso de estudio ↗</span><span lang="en">Case study ↗</span></a>
+        <div class="card-grid">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="url mono">misemestre.cl</span></div>
+            <div class="screen">
+              <img src="assets/misemestre/03-malla-con-avance.jpg" alt="Malla interactiva de MiSemestre" loading="lazy" data-set="misemestre/03-malla-con-avance,misemestre/01-elige-universidad,misemestre/04-detalle-ramo">
+            </div>
+            <button type="button" class="next mono" aria-label="Siguiente captura">→</button>
+          </div>
+          <div class="card-body">
+            <h3>MiSemestre</h3>
+            <p class="lede">
+              <span lang="es">Nació de mi propio dolor de cabeza: cruzar prerrequisitos a mano en un PDF. Ahora marcas los ramos aprobados y ves al tiro qué puedes tomar el próximo semestre.</span>
+              <span lang="en">Born from my own headache: cross-checking prerequisites by hand in a PDF. Now you tick the courses you passed and instantly see what you can take next semester.</span>
+            </p>
+            <ul class="bullets">
+              <li><span lang="es">8 universidades + Duoc UC, más de 400 carreras.</span><span lang="en">8 universities + Duoc UC, 400+ degree programs.</span></li>
+              <li><span lang="es">Funciona sin cuenta; con Google sincroniza entre dispositivos.</span><span lang="en">Works with no account; Google sign-in syncs across devices.</span></li>
+              <li><span lang="es">Scripts en Python y Node que extraen y auditan las mallas oficiales.</span><span lang="en">Python and Node scripts that extract and audit official curricula.</span></li>
+            </ul>
+            <ul class="tags"><li>JavaScript</li><li>Firebase</li><li>Firestore</li><li>Python</li></ul>
+            <div class="links">
+              <a href="https://misemestre.cl" target="_blank" rel="noopener" class="btn small yellow">misemestre.cl ↗</a>
+              <a href="https://github.com/TMSchipmann/misemestre-case-study" target="_blank" rel="noopener" class="btn small"><span lang="es">Caso de estudio</span><span lang="en">Case study</span> ↗</a>
+            </div>
           </div>
         </div>
       </article>
 
-      <!-- Proyectos menores -->
-      <div class="mini-grid">
-        <article class="mini">
-          <p class="mono tag-line"><span lang="es">SaaS industrial · Privado</span><span lang="en">Industrial SaaS · Private</span></p>
+      <div class="duo">
+        <article class="card mini" style="--bg:var(--green); --tilt:-1.5deg">
+          <div class="card-top">
+            <span class="badge"><span lang="es">Industrial · privado</span><span lang="en">Industrial · private</span></span>
+            <span class="idx mono">03</span>
+          </div>
+          <div class="emoji">⚙️</div>
           <h3>InfoTech</h3>
           <p>
-            <span lang="es">Sistema de órdenes de trabajo para la mantención de poleas industriales: flujo operativo por etapas, permisos, manejo de archivos, cálculo de tolerancias ISO 286 e informes PDF versionados.</span>
-            <span lang="en">Work-order system for industrial pulley maintenance: staged workflow, permissions, file handling, ISO 286 tolerance calculation and versioned PDF reports.</span>
+            <span lang="es">Órdenes de trabajo para mantención de poleas industriales: flujo por etapas, permisos, archivos e informes PDF versionados.</span>
+            <span lang="en">Work orders for industrial pulley maintenance: staged workflow, permissions, file handling and versioned PDF reports.</span>
           </p>
-          <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Prisma</li><li>PostgreSQL</li></ul>
+          <ul class="tags"><li>Next.js</li><li>Prisma</li><li>Postgres</li></ul>
         </article>
-        <article class="mini">
-          <p class="mono tag-line"><span lang="es">Herramienta interna · Alemania</span><span lang="en">Internal tool · Germany</span></p>
-          <h3><span lang="es">Inventario industrial</span><span lang="en">Industrial inventory</span></h3>
+        <article class="card mini" style="--bg:var(--orange); --tilt:1.5deg">
+          <div class="card-top">
+            <span class="badge"><span lang="es">Alemania · en producción</span><span lang="en">Germany · in production</span></span>
+            <span class="idx mono">04</span>
+          </div>
+          <div class="emoji">📦</div>
+          <h3><span lang="es">Inventario Küpper</span><span lang="en">Küpper Inventory</span></h3>
           <p>
-            <span lang="es">Sistema web de inventario construido desde cero para Artur Küpper GmbH, con interfaz de administración y otra para terminales táctiles de planta. En producción sobre IIS en la red interna.</span>
-            <span lang="en">Web inventory system built from scratch for Artur Küpper GmbH, with an admin interface and another for shop-floor touch terminals. Live on IIS inside the company network.</span>
+            <span lang="es">Sistema de inventario hecho desde cero para una empresa alemana, con una interfaz para administración y otra para pantallas táctiles en planta.</span>
+            <span lang="en">Inventory system built from scratch for a German company, with an admin UI and another for touch screens on the shop floor.</span>
           </p>
-          <ul class="chips"><li>PHP</li><li>REST API</li><li>Bootstrap</li><li>IIS</li></ul>
+          <ul class="tags"><li>PHP</li><li>REST</li><li>Bootstrap</li><li>IIS</li></ul>
         </article>
       </div>
     </section>
 
-    <!-- EXPERIENCIA -->
-    <section class="section wrap" id="experiencia">
-      <header class="section-head">
-        <p class="mono kicker">02</p>
-        <h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
-      </header>
-      <ol class="timeline">
-        <li>
-          <p class="mono when"><span lang="es">mar – may 2026</span><span lang="en">Mar – May 2026</span></p>
-          <div>
-            <h3>Artur Küpper GmbH <span class="where">· Bottrop, <span lang="es">Alemania</span><span lang="en">Germany</span></span></h3>
-            <p class="role"><span lang="es">Práctica TI / Desarrollador Full-Stack</span><span lang="en">IT Intern / Full-Stack Developer</span></p>
-            <p>
-              <span lang="es">Diseñé la arquitectura y me encargué del desarrollo, despliegue y soporte de un sistema de inventario interno con PHP, Bootstrap y APIs REST, sin dependencias externas.</span>
-              <span lang="en">Designed the architecture and handled development, deployment and support of an internal inventory system with PHP, Bootstrap and REST APIs, with no external dependencies.</span>
-            </p>
+    <!-- RUTA -->
+    <section class="journey" id="ruta">
+      <h2 class="big-title">
+        <span lang="es">Mi ruta</span><span lang="en">My journey</span>
+      </h2>
+
+      <div class="ticket">
+        <div class="ticket-main">
+          <p class="mono t-label"><span lang="es">PASE DE ABORDAR · PRÁCTICA</span><span lang="en">BOARDING PASS · INTERNSHIP</span></p>
+          <div class="route">
+            <div><b>SCL</b><span>Santiago</span></div>
+            <div class="plane">✈</div>
+            <div><b>BOT</b><span>Bottrop</span></div>
           </div>
+          <h3>Artur Küpper GmbH</h3>
+          <p>
+            <span lang="es">IT Intern / Full-Stack. Me pasaron un problema real de inventario y lo resolví de principio a fin: definí la arquitectura, lo programé, lo desplegué en su red y quedé a cargo del soporte.</span>
+            <span lang="en">IT Intern / Full-Stack. They gave me a real inventory problem and I solved it end to end: defined the architecture, built it, deployed it on their network and supported it.</span>
+          </p>
+        </div>
+        <div class="ticket-stub mono">
+          <div><small><span lang="es">FECHA</span><span lang="en">DATE</span></small><span lang="es">MAR–MAY 2026</span><span lang="en">MAR–MAY 2026</span></div>
+          <div><small>GATE</small>PHP · REST</div>
+          <div><small><span lang="es">ASIENTO</span><span lang="en">SEAT</span></small>DEV-01</div>
+          <div class="barcode" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <ol class="stops">
+        <li style="--c:var(--green)">
+          <span class="mono when">2021 → 2026</span>
+          <h3>Universidad Andrés Bello</h3>
+          <p><span lang="es">Ingeniería Civil Informática. Egresé <b>Cum Laude</b>.</span><span lang="en">Computer Engineering. Graduated <b>Cum Laude</b>.</span></p>
         </li>
-        <li>
-          <p class="mono when"><span lang="es">jul – ago 2025</span><span lang="en">Jul – Aug 2025</span></p>
-          <div>
-            <h3>Frozen Service Limitada <span class="where">· Puerto Montt, Chile</span></h3>
-            <p class="role"><span lang="es">Práctica TI y apoyo a gestión</span><span lang="en">IT &amp; Management Support Intern</span></p>
-            <p>
-              <span lang="es">Apoyé la digitalización de procesos administrativos y desarrollé contenido web institucional con HTML, CSS y Bootstrap.</span>
-              <span lang="en">Supported the digitalization of administrative processes and built institutional web content with HTML, CSS and Bootstrap.</span>
-            </p>
-          </div>
+        <li style="--c:var(--pink)">
+          <span class="mono when"><span lang="es">jul – ago 2025</span><span lang="en">Jul – Aug 2025</span></span>
+          <h3>Frozen Service · Puerto Montt</h3>
+          <p><span lang="es">Práctica TI: digitalicé procesos administrativos y armé contenido web institucional.</span><span lang="en">IT internship: digitalized admin processes and built institutional web content.</span></p>
         </li>
-        <li>
-          <p class="mono when">2021 – 2026</p>
-          <div>
-            <h3>Universidad Andrés Bello</h3>
-            <p class="role"><span lang="es">Ingeniería Civil Informática · Cum Laude</span><span lang="en">Computer Engineering · Cum Laude</span></p>
-          </div>
+        <li style="--c:var(--blue)">
+          <span class="mono when"><span lang="es">idiomas</span><span lang="en">languages</span></span>
+          <h3><span lang="es">Español · Inglés · Alemán</span><span lang="en">Spanish · English · German</span></h3>
+          <p><span lang="es">Nativo · intermedio (B1–B2) · básico, pero con ganas.</span><span lang="en">Native · intermediate (B1–B2) · basic, but eager.</span></p>
         </li>
       </ol>
     </section>
 
-    <!-- STACK -->
-    <section class="section wrap" id="stack">
-      <header class="section-head">
-        <p class="mono kicker">03</p>
-        <h2>Stack</h2>
-      </header>
-      <div class="stack-grid">
-        <div class="stack-col">
-          <h3 class="mono"><span lang="es">Desarrollo</span><span lang="en">Development</span></h3>
-          <ul class="chips big"><li>TypeScript</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>Node.js</li><li>PHP</li><li>HTML</li><li>CSS</li><li>Tailwind CSS</li><li>Bootstrap</li></ul>
-        </div>
-        <div class="stack-col">
-          <h3 class="mono"><span lang="es">Datos y servicios</span><span lang="en">Data &amp; services</span></h3>
-          <ul class="chips big"><li>PostgreSQL</li><li>Supabase</li><li>Prisma</li><li>MySQL</li><li>Firebase</li><li>REST APIs</li><li>Auth.js</li><li>Zod</li></ul>
-        </div>
-        <div class="stack-col">
-          <h3 class="mono"><span lang="es">Infraestructura</span><span lang="en">Infrastructure</span></h3>
-          <ul class="chips big"><li>Git</li><li>Vercel</li><li>Cloudflare</li><li>IIS</li><li>Vitest</li></ul>
-        </div>
-        <div class="stack-col">
-          <h3 class="mono"><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
-          <ul class="langs">
-            <li><span lang="es">Español</span><span lang="en">Spanish</span> <em><span lang="es">nativo</span><span lang="en">native</span></em></li>
-            <li><span lang="es">Inglés</span><span lang="en">English</span> <em><span lang="es">intermedio (B1–B2)</span><span lang="en">intermediate (B1–B2)</span></em></li>
-            <li><span lang="es">Alemán</span><span lang="en">German</span> <em><span lang="es">básico</span><span lang="en">basic</span></em></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACTO -->
-    <section class="section wrap contact" id="contacto">
-      <p class="mono kicker">04</p>
-      <h2 class="contact-title">
-        <span lang="es">¿Conversamos?</span><span lang="en">Let's talk.</span>
+    <section class="contact" id="contacto">
+      <p class="mono kicker"><span lang="es">¿Tienes un equipo donde encajaría?</span><span lang="en">Got a team where I'd fit in?</span></p>
+      <h2 class="huge">
+        <span lang="es">Hablemos.</span><span lang="en">Let's talk.</span>
       </h2>
-      <p class="section-sub">
-        <span lang="es">Busco un rol full-stack o de producto donde pueda construir software útil para usuarios reales. Disponible de inmediato, en Chile o en la Unión Europea.</span>
-        <span lang="en">I'm looking for a full-stack or product engineering role where I can build software that's useful to real users. Available immediately, in Chile or the European Union.</span>
-      </p>
-      <div class="contact-links">
-        <a class="btn primary big" href="mailto:tomasinh9@gmail.com">tomasinh9@gmail.com</a>
-        <a class="btn big" href="https://www.linkedin.com/in/tomasmsch/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn big" href="https://github.com/TMSchipmann" target="_blank" rel="noopener">GitHub ↗</a>
+      <button type="button" class="email" id="copy-email" data-email="tomasinh9@gmail.com">
+        tomasinh9@gmail.com
+        <span class="copy mono"><span lang="es">copiar</span><span lang="en">copy</span></span>
+      </button>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/tomasmsch/" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+        <a href="https://github.com/TMSchipmann" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        <a href="mailto:tomasinh9@gmail.com" class="btn yellow"><span lang="es">Enviar correo</span><span lang="en">Send email</span> ✉</a>
       </div>
+      <p class="mono foot">
+        <span lang="es">Hecho en Santiago de Chile</span><span lang="en">Made in Santiago, Chile</span> · © <span id="year">2026</span>
+      </p>
     </section>
   </main>
 
-  <footer class="wrap footer mono">
-    <span>© <span id="year">2026</span> Tomás Martínez Schipmann</span>
-    <span><span lang="es">Hecho a mano · HTML, CSS y JS</span><span lang="en">Handmade · HTML, CSS &amp; JS</span></span>
-  </footer>
-
-  <!-- Lightbox -->
-  <dialog id="lightbox" aria-label="Captura ampliada">
-    <button type="button" class="lb-close" aria-label="Cerrar">×</button>
-    <img alt="">
-  </dialog>
-
+  <div class="toast mono" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>
 </html>

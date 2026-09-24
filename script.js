@@ -1,74 +1,105 @@
 (function () {
   var root = document.documentElement;
+  var toast = document.getElementById('toast');
+  var toastTimer;
 
-  function save(key, value) {
-    try { localStorage.setItem(key, value); } catch (e) {}
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
   }
 
   // Idioma
   document.getElementById('lang-toggle').addEventListener('click', function () {
-    var next = root.lang === 'es' ? 'en' : 'es';
-    root.lang = next;
-    save('lang', next);
+    root.lang = root.lang === 'es' ? 'en' : 'es';
+    try { localStorage.setItem('lang', root.lang); } catch (e) {}
   });
 
-  // Tema
-  document.getElementById('theme-toggle').addEventListener('click', function () {
-    var current = root.dataset.theme ||
-      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    var next = current === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    save('theme', next);
-  });
+  // Stickers arrastrables
+  document.querySelectorAll('.sticker').forEach(function (el) {
+    var zone = el.parentElement;
+    el.addEventListener('pointerdown', function (e) {
+      var zr = zone.getBoundingClientRect();
+      var er = el.getBoundingClientRect();
+      var dx = e.clientX - er.left;
+      var dy = e.clientY - er.top;
+      el.setPointerCapture(e.pointerId);
+      el.classList.add('dragging');
+      zone.appendChild(el); // queda encima de los demás
 
-  // Borde del nav al hacer scroll
-  var nav = document.querySelector('.nav');
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Galerías: la miniatura reemplaza la imagen principal
-  document.querySelectorAll('.thumbs').forEach(function (thumbs) {
-    var main = thumbs.parentElement.querySelector('.shot img');
-    var original = main.getAttribute('src');
-    thumbs.querySelectorAll('button').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var isActive = btn.classList.contains('active');
-        thumbs.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
-        var src = isActive ? original : btn.dataset.src;
-        if (!isActive) btn.classList.add('active');
-        main.style.opacity = '0';
-        setTimeout(function () {
-          main.src = src;
-          main.alt = isActive ? main.alt : btn.querySelector('img').alt;
-          main.style.opacity = '1';
-        }, 150);
-      });
+      function move(ev) {
+        var x = Math.max(-20, Math.min(ev.clientX - zr.left - dx, zr.width - er.width + 20));
+        var y = Math.max(-20, Math.min(ev.clientY - zr.top - dy, zr.height - er.height + 20));
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+      }
+      function up() {
+        el.classList.remove('dragging');
+        el.removeEventListener('pointermove', move);
+        el.removeEventListener('pointerup', up);
+        el.removeEventListener('pointercancel', up);
+      }
+      el.addEventListener('pointermove', move);
+      el.addEventListener('pointerup', up);
+      el.addEventListener('pointercancel', up);
     });
   });
 
-  // Lightbox
-  var lb = document.getElementById('lightbox');
-  var lbImg = lb.querySelector('img');
-  document.querySelectorAll('.shot').forEach(function (fig) {
-    fig.addEventListener('click', function () {
-      var img = fig.querySelector('img');
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lb.showModal();
+  // Carrusel de capturas en cada navegador
+  document.querySelectorAll('.browser').forEach(function (b) {
+    var img = b.querySelector('img');
+    var set = img.dataset.set.split(',');
+    var i = 0;
+    b.querySelector('.next').addEventListener('click', function () {
+      i = (i + 1) % set.length;
+      img.style.opacity = '0';
+      setTimeout(function () {
+        img.src = 'assets/' + set[i] + '.jpg';
+        img.onload = function () { img.style.opacity = '1'; };
+      }, 180);
     });
   });
-  lb.addEventListener('click', function () { lb.close(); });
+
+  // Copiar correo
+  var copyBtn = document.getElementById('copy-email');
+  copyBtn.addEventListener('click', function () {
+    var email = copyBtn.dataset.email;
+    var done = function () { showToast(root.lang === 'es' ? '¡Copiado! 📋' : 'Copied! 📋'); };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(email).then(done, function () { location.href = 'mailto:' + email; });
+    } else {
+      location.href = 'mailto:' + email;
+    }
+  });
+
+  // Contadores
+  function count(el) {
+    var target = +el.dataset.count;
+    var start = performance.now();
+    var dur = 1100;
+    (function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
 
   // Aparición al hacer scroll
-  var targets = document.querySelectorAll('.section-head, .project, .mini, .timeline li, .stack-col, .contact > *');
-  if ('IntersectionObserver' in window) {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-count]').forEach(count);
+        io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px' });
-    targets.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.num, .card, .big-title, .ticket, .stops li').forEach(function (el) {
+      el.classList.add('pop');
+      io.observe(el);
+    });
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
